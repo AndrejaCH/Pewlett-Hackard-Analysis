@@ -1,0 +1,21 @@
+dept_name,title,count
+Sales,Senior Staff,10225
+Sales,Manager,1
+Research,Technique Leader,26
+Research,Manager,1
+Research,Senior Staff,3449
+Research,Senior Engineer,322
+Quality Management,Technique Leader,446
+Quality Management,Senior Engineer,3101
+Production,Technique Leader,1898
+Production,Senior Staff,200
+Production,Senior Engineer,11848
+Marketing,Senior Staff,3581
+Human Resources,Senior Staff,3516
+Finance,Senior Staff,3352
+Development,Senior Engineer,13881
+Development,Technique Leader,2110
+Development,Senior Staff,178
+Customer Service,Senior Staff,3753
+Customer Service,Senior Engineer,263
+Customer Service,Technique Leader,22
