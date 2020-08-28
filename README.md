@@ -27,7 +27,7 @@ Building clean and organized database with good foundation is essential in order
 
 ## Resources
 Data Source:
--	[Six csv files](Data/)
+-	[Six csv files](Data_Source/)
 
 Software:
 -	PostreSQL
