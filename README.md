@@ -13,7 +13,7 @@ The purpose of this analysis is to prepare Pewlett-Hackard, a company with sever
 
 
 <p align="center">  
-<img src="Graphics/cityatnight.PNG" width="50%" height="50%">
+<img src="Graphics/cityatnight.PNG" width="60%" height="60%">
 </p>
 
 
