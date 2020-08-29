@@ -3,7 +3,7 @@
 
 ## Project Overview 
 ### Purpose
-The purpose of this analysis is to prepare Pewlett-Hackard, a company with several thousand employees, for upcoming “silver tsunami”. A large number of employees will begin retiring at a rapid rate in next few years and the company wants to be prepared with the retirement packages, open positions and employees’ training. In order to ensure smooth transition this analysis focuses on: 
+The purpose of this analysis is to prepare Pewlett-Hackard, a company with several thousand employees, for upcoming “silver tsunami”. A large number of employees will begin retiring at a rapid rate in next few years and the company wants to be prepared with the retirement packages, open positions and employees’ training. In order to ensure a smooth transition this analysis focuses on the following: 
 
 1.	Identify the retiring employees by their title.
 2.	Determine the sum of retiring employees grouped by title.
@@ -18,8 +18,12 @@ The purpose of this analysis is to prepare Pewlett-Hackard, a company with sever
 
 
 ### Background
-The data is gathered in six CSV files and the analysis is performed using relational databases. In this analysis I am using **QuickDBD** to create quick database design for better visualization **PostreSQL** a database system to load, build and host company’s data and **pgAdmin** a GUI to use SQL Language to explore, manipulate and extract the data. 
-As a part of data modeling and data engineering the knowledge of constraint rules and awareness of “dirty data” that is flawed and require extensive cleaning is highly. Here is a quote from the module that summarizes few rules when building the database.
+The data is gathered in six CSV files and the analysis is performed using relational databases. In this analysis I am using:
+- **QuickDBD** to create quick database design for better visualization,
+- **PostreSQL** a database system to load, build and host company’s data, and 
+- **pgAdmin** a GUI, using SQL Language to explore, manipulate and extract the data. 
+
+As a part of **data modeling** and **data engineering** the fundamental knowledge of constraint rules and awareness of “dirty data” that is flawed and require extensive cleaning is very important. A section in the module summarizes few rules when building the database:
 
 > A constraint is a rule that is applied to a column in a SQL table. It will limit the data in a way that provides more accuracy and reliability when working with it. The unique constraint implies that the data in that column is unique. This ensures that if the table were to be updated in the future, nothing will be duplicated (1). 
 
@@ -39,8 +43,8 @@ Software:
 **1.	The list of retiring employees**
 -	The table includes employee number, first name, last name, title, from-date and to-date.
 -	The query returns 133,776 rows. 
--	From the table we can see who is going to retire in the next few years.
--	The list is long and excessive, yet at-a-glance analysis gives us some insights about the query. Some employees appear more than once due to change of the title during their career at Pewlett-Hackard.
+-	The table displays a list of employees who is going to retire in the next few years.
+-	The list is long and extensive, yet at-a-glance analysis gives us some insights about the query. Some employees appear more than once due to change of the title during their career at Pewlett-Hackard.
 <p align="center">  
 <img src="Graphics/EmployeesTitleDuplicates.PNG" width="50%" height="50%">
 </p>
@@ -49,15 +53,15 @@ The table with the employee’s data that are retirement-ready.
 </p>
 
 #### Overview the code
-To retrieve the data two tables were merge together employees and titles with the `inner join` and filtered by birth date (that indicates who is about to retire in the next few years) ` WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31') `. 
+To retrieve the data, two tables were merge together - employees and titles - with the `inner join` and filtered by birth date (that indicates who is about to retire in the next few years) ` WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31') `. 
 
-:exclamation: The query has one drawback. It contains all the titles that employees acquire while working at Pewlett-Hackard over the years. That results in duplicates, some employees appear two times or more; therefore, the number of retiring employees (133,776) huge and incorrect.
+:exclamation: The query has one drawback. It contains all the titles that employees acquired while working at Pewlett-Hackard over the years. This resulted in duplicates, some employees appear two times or more; therefore, the number of retiring employees (133,776) is huge and incorrect.
 
 **2.	The list of retiring employees without duplicates**
 -	The table includes employee number, first name, last name, title, from-date and to-date.
 -	The query returns 90,398 rows. 
--	From the table we can see who is going to retire in the next few years.
--	In the table each employee a listed only once, by her or his most recent title.
+- The table displays a list of employees who is going to retire in the next few years.
+-	In the table each employee is listed only once, by her or his most recent title.
 <p align="center">  
 <img src="Graphics/EmployeesTitleNODuplicates.PNG" width="50%" height="50%">
 </p>
@@ -66,7 +70,7 @@ The table with the employee’s data that are retirement-ready without duplicate
 </p>
 
 #### Overview the code
-Query contains the same data as the query above with addition of `distinct_on` command that keep only unique values. To ensure that most recent values are kept, I used command `ORDER BY rt.emp_no, rt.to_date DESC` to sort the data in descending order by the `to_date`. In this case the most recent title was listed first after running the query the duplicates listed after the first appearance of the same employees were removed.
+Query contains the same data as the query above with addition of `distinct_on` command that kept only unique values. To ensure that most recent values are kept, I used command `ORDER BY rt.emp_no, rt.to_date DESC` to sort the data by descending order on the `to_date` column. In this case the most recent title was listed first, and after running the query the duplicates listed after the first appearance of the same employees were removed.
 
 **3.	The number of retiring employees grouped by title**
 -	The table includes employees’ titles and their sum. 
@@ -81,12 +85,12 @@ The table with the employee grouped by title
 </p>
 
 #### Overview the code
-In order to retrieve this table I used `GROUP BY ut.title` command, that is responsible for grouping the titles. Next, I used its corresponding command `COUNT (ut.title)` that counts how many times specific title appears in the database. 
+In order to retrieve this table I used `GROUP BY ut.title` command, and it is responsible for grouping the rows by titles. Next, I used its corresponding command `COUNT (ut.title)` that counts how many times specific title appears in the database. 
 
 **4.	The employees eligible for the mentorship program**
 -	The table contains employee number, first name, last name, birth date, from date, to date and title. 
 -	The query returns 1,549 rows.
--	From the table we can see who is eligible for the mentorship program. 
+- The table displays a list of employees who is eligible for the mentorship program.
 <p align="center">  
 <img src="Graphics/Menthorship.PNG" width="50%" height="50%">
 </p>
@@ -95,13 +99,13 @@ The table with the employee grouped by title
 </p>
 
 #### Overview the code
-To retrieve this data, three tables were merge together: employees, titles and dep_emp with the `inner join`. The query has filter by birth date (that indicates who is eligible for the mentorship program) ` WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31') ` and `to_date`  to include only current employees. Duplicates were removed by ` DISTINCT ON (e.emp_no)` command and to ensure I got the most recent titles, I used `ORDER BY e.emp_no, ti.from_date DESC` command.
+To retrieve this data, three tables were merge together: employees, titles and dep_emp with the `inner join`. The query filters by birth date (that indicates who is eligible for the mentorship program) with the command ` WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31') ` and `to_date`  to include only current employees. Duplicates were removed by `DISTINCT ON (e.emp_no)` command. To ensure I got the most recent titles, I used `ORDER BY e.emp_no, ti.from_date DESC` command.
 
 :exclamation: Please see full reports in CSV files [here](Data/) and SQL Queries [here](Queries/Employee_Database_challenge.sql) - **see Deliverable  1 & 2**.
 
 ## Summary
 
-As the company is preparing for the upcoming "silver tsunami" a good planning is essential, especially when such a large number of the employees is involved. Reports above gives good insight about the number of the employees that are about to retire and hold specific title. However, I believe that additional break down per department will be beneficial for the company. In this case headquarters can see what to expect in each department separately. In order to retrieve department name information, I merged additional table `departments` into existing table `retirement_titles` with `inner join`. With removing the duplicates, the table was ready to be used for additional queries.
+As the company is preparing for the upcoming "silver tsunami" a good planning is essential, especially when such a large number of the employees is involved. Reports above give a good insight about the number of the employees that are about to retire and hold specific title. However, I believe that additional break down per department will be beneficial for the company. In this case headquarters can see what to expect in each department separately. In order to retrieve department name information, I merged additional table `departments` into existing table `retirement_titles` with the `inner join`. After removing the duplicates, with `DISTINCT ON` command, the table was ready to be used for additional queries.
 <p align="center">  
 <img src="Graphics/Extra_TitlesAndDepartment.PNG" width="60%" height="60%">
 </p>
