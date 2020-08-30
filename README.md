@@ -52,11 +52,10 @@ Software:
 Table with the employee’s data that are retirement-ready
 </p>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Overview of the code**
+  **Overview of the code**
+To retrieve the data, two tables were merged together - employees and titles - with the `inner join` and filtered by birth date, that indicates who is about to retire in the next few years with the command `WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')`. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To retrieve the data, two tables were merged together - employees and titles - with the `inner join` and filtered by birth date, that &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indicates who is about to retire in the next few years with the command `WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')`. 
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:exclamation: The query has one drawback. It contains all the titles that employees acquired while working at Pewlett-Hackard over the years. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This resulted in duplicates, some employees appear two times or more; therefore, the number of retiring employees (133,776) is huge and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;incorrect.
+:exclamation: The query has one drawback. It contains all the titles that employees acquired while working at Pewlett-Hackard over the years. This resulted in duplicates, some employees appear two times or more; therefore, the number of retiring employees (133,776) is huge and incorrect.
 
 **2.	The list of retiring employees without duplicates**
 -	The table includes employee number, first name, last name, title, from-date and to-date.
@@ -70,8 +69,8 @@ Table with the employee’s data that are retirement-ready
 Table with the employee’s data that are retirement-ready without duplicates
 </p>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Overview of the code**
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Query contains the same data as the query above with addition of `distinct_on` command that kept only unique values. To ensure that most recent values are kept, I used command `ORDER BY rt.emp_no, rt.to_date DESC` to sort the data by descending order on the `to_date` column. In this case the most recent title was listed first, and after running the query the duplicates listed after the first appearance of the same employees were removed.
+**Overview of the code**
+Query contains the same data as the query above with addition of `distinct_on` command that kept only unique values. To ensure that most recent values are kept, I used command `ORDER BY rt.emp_no, rt.to_date DESC` to sort the data by descending order on the `to_date` column. In this case the most recent title was listed first, and after running the query the duplicates listed after the first appearance of the same employees were removed.
 
 **3.	The number of retiring employees grouped by title**
 -	The table includes employees’ titles and their sum. 
@@ -85,8 +84,8 @@ Table with the employee’s data that are retirement-ready without duplicates
 Table with the employee grouped by title
 </p>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Overview of the code**
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to retrieve this table I used `GROUP BY ut.title` command, and it is responsible for grouping the rows by titles. Next, I used its corresponding command `COUNT (ut.title)` that counts how many times specific title appears in the database. 
+**Overview of the code**
+In order to retrieve this table I used `GROUP BY ut.title` command, and it is responsible for grouping the rows by titles. Next, I used its corresponding command `COUNT (ut.title)` that counts how many times specific title appears in the database. 
 
 **4.	The employees eligible for the mentorship program**
 -	The table contains employee number, first name, last name, birth date, from date, to date and title. 
@@ -99,10 +98,10 @@ Table with the employee grouped by title
 Table with the employee grouped by title
 </p>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Overview of the code**
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To retrieve this data, three tables were merge together: employees, titles and dep_emp with the `inner join`. The query filters by birth date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(that indicates who is eligible for the mentorship program) with the command ` WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31') ` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and `to_date`  to include only current employees. Duplicates were removed by `DISTINCT ON (e.emp_no)` command. To ensure I got the most &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recent titles, I used `ORDER BY e.emp_no, ti.from_date DESC` command.
+**Overview of the code**
+To retrieve this data, three tables were merge together: employees, titles and dep_emp with the `inner join`. The query filters by birth date (that indicates who is eligible for the mentorship program) with the command ` WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31') ` and `to_date`  to include only current employees. Duplicates were removed by `DISTINCT ON (e.emp_no)` command. To ensure I got the most recent titles, I used `ORDER BY e.emp_no, ti.from_date DESC` command.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:exclamation: Please see full reports in CSV files [here](Data/) and SQL Queries [here](Queries/Employee_Database_challenge.sql) - **see Deliverable  1 & 2**.
+:exclamation: Please see full reports in CSV files [here](Data/) and SQL Queries [here](Queries/Employee_Database_challenge.sql) - **see Deliverable  1 & 2**.
 
 ## Summary
 
