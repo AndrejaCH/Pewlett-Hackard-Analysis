@@ -53,6 +53,7 @@ Table with the employee’s data that are retirement-ready
 </p>
 
   **Overview of the code**
+  
 To retrieve the data, two tables were merged together - employees and titles - with the `inner join` and filtered by birth date, that indicates who is about to retire in the next few years with the command `WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')`. 
 
 :exclamation: The query has one drawback. It contains all the titles that employees acquired while working at Pewlett-Hackard over the years. This resulted in duplicates, some employees appear two times or more; therefore, the number of retiring employees (133,776) is huge and incorrect.
@@ -70,6 +71,7 @@ Table with the employee’s data that are retirement-ready without duplicates
 </p>
 
 **Overview of the code**
+
 Query contains the same data as the query above with addition of `distinct_on` command that kept only unique values. To ensure that most recent values are kept, I used command `ORDER BY rt.emp_no, rt.to_date DESC` to sort the data by descending order on the `to_date` column. In this case the most recent title was listed first, and after running the query the duplicates listed after the first appearance of the same employees were removed.
 
 **3.	The number of retiring employees grouped by title**
@@ -85,6 +87,7 @@ Table with the employee grouped by title
 </p>
 
 **Overview of the code**
+
 In order to retrieve this table I used `GROUP BY ut.title` command, and it is responsible for grouping the rows by titles. Next, I used its corresponding command `COUNT (ut.title)` that counts how many times specific title appears in the database. 
 
 **4.	The employees eligible for the mentorship program**
@@ -99,6 +102,7 @@ Table with the employee grouped by title
 </p>
 
 **Overview of the code**
+
 To retrieve this data, three tables were merge together: employees, titles and dep_emp with the `inner join`. The query filters by birth date (that indicates who is eligible for the mentorship program) with the command ` WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31') ` and `to_date`  to include only current employees. Duplicates were removed by `DISTINCT ON (e.emp_no)` command. To ensure I got the most recent titles, I used `ORDER BY e.emp_no, ti.from_date DESC` command.
 
 :exclamation: Please see full reports in CSV files [here](Data/) and SQL Queries [here](Queries/Employee_Database_challenge.sql) - **see Deliverable  1 & 2**.
