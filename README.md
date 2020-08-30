@@ -53,9 +53,10 @@ Table with the employee’s data that are retirement-ready
 </p>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Overview of the code**
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To retrieve the data, two tables were merged together - employees and titles - with the `inner join` and filtered by birth date, that indicates who is about to retire in the next few years with the command `WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')`. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:exclamation: The query has one drawback. It contains all the titles that employees acquired while working at Pewlett-Hackard over the years. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This resulted in duplicates, some employees appear two times or more; therefore, the number of retiring employees (133,776) is huge and incorrect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To retrieve the data, two tables were merged together - employees and titles - with the `inner join` and filtered by birth date, that &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indicates who is about to retire in the next few years with the command `WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')`. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:exclamation: The query has one drawback. It contains all the titles that employees acquired while working at Pewlett-Hackard over the years. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This resulted in duplicates, some employees appear two times or more; therefore, the number of retiring employees (133,776) is huge and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;incorrect.
 
 **2.	The list of retiring employees without duplicates**
 -	The table includes employee number, first name, last name, title, from-date and to-date.
