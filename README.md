@@ -44,33 +44,33 @@ Software:
 -	The table includes employee number, first name, last name, title, from-date and to-date.
 -	The query returns 133,776 rows. 
 -	The table displays a list of employees who is going to retire in the next few years.
--	The list is long and extensive, yet at-a-glance analysis gives us some insights about the query. Some employees appear more than once due to change of the title during their career at Pewlett-Hackard.
+-	The list is long and extensive, yet at-a-glance analysis gives us some insights about the query. Some employees appear more than once due to change of title during their career at Pewlett-Hackard.
 <p align="center">  
 <img src="Graphics/EmployeesTitleDuplicates.PNG" width="50%" height="50%">
 </p>
 <p align="center">  
-The table with the employee’s data that are retirement-ready.
+Table with the employee’s data that are retirement-ready
 </p>
 
-#### Overview the code
-To retrieve the data, two tables were merge together - employees and titles - with the `inner join` and filtered by birth date (that indicates who is about to retire in the next few years) ` WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31') `. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Overview of the code**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To retrieve the data, two tables were merged together - employees and titles - with the `inner join` and filtered by birth date, that indicates who is about to retire in the next few years with the command `WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')`. 
 
-:exclamation: The query has one drawback. It contains all the titles that employees acquired while working at Pewlett-Hackard over the years. This resulted in duplicates, some employees appear two times or more; therefore, the number of retiring employees (133,776) is huge and incorrect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:exclamation: The query has one drawback. It contains all the titles that employees acquired while working at Pewlett-Hackard over the years. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This resulted in duplicates, some employees appear two times or more; therefore, the number of retiring employees (133,776) is huge and incorrect.
 
 **2.	The list of retiring employees without duplicates**
 -	The table includes employee number, first name, last name, title, from-date and to-date.
 -	The query returns 90,398 rows. 
-- The table displays a list of employees who is going to retire in the next few years.
+- The table displays a list of employees who are going to retire in the next few years.
 -	In the table each employee is listed only once, by her or his most recent title.
 <p align="center">  
 <img src="Graphics/EmployeesTitleNODuplicates.PNG" width="50%" height="50%">
 </p>
 <p align="center">  
-The table with the employee’s data that are retirement-ready without duplicates
+Table with the employee’s data that are retirement-ready without duplicates
 </p>
 
-#### Overview the code
-Query contains the same data as the query above with addition of `distinct_on` command that kept only unique values. To ensure that most recent values are kept, I used command `ORDER BY rt.emp_no, rt.to_date DESC` to sort the data by descending order on the `to_date` column. In this case the most recent title was listed first, and after running the query the duplicates listed after the first appearance of the same employees were removed.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Overview of the code**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Query contains the same data as the query above with addition of `distinct_on` command that kept only unique values. To ensure that most recent values are kept, I used command `ORDER BY rt.emp_no, rt.to_date DESC` to sort the data by descending order on the `to_date` column. In this case the most recent title was listed first, and after running the query the duplicates listed after the first appearance of the same employees were removed.
 
 **3.	The number of retiring employees grouped by title**
 -	The table includes employees’ titles and their sum. 
@@ -81,11 +81,11 @@ Query contains the same data as the query above with addition of `distinct_on` c
 <img src="Graphics/EmployeesTitleSum.PNG" width="30%" height="30%">
 </p>
 <p align="center">  
-The table with the employee grouped by title
+Table with the employee grouped by title
 </p>
 
-#### Overview the code
-In order to retrieve this table I used `GROUP BY ut.title` command, and it is responsible for grouping the rows by titles. Next, I used its corresponding command `COUNT (ut.title)` that counts how many times specific title appears in the database. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Overview of the code**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to retrieve this table I used `GROUP BY ut.title` command, and it is responsible for grouping the rows by titles. Next, I used its corresponding command `COUNT (ut.title)` that counts how many times specific title appears in the database. 
 
 **4.	The employees eligible for the mentorship program**
 -	The table contains employee number, first name, last name, birth date, from date, to date and title. 
@@ -95,13 +95,13 @@ In order to retrieve this table I used `GROUP BY ut.title` command, and it is re
 <img src="Graphics/Menthorship.PNG" width="50%" height="50%">
 </p>
 <p align="center">  
-The table with the employee grouped by title
+Table with the employee grouped by title
 </p>
 
-#### Overview the code
-To retrieve this data, three tables were merge together: employees, titles and dep_emp with the `inner join`. The query filters by birth date (that indicates who is eligible for the mentorship program) with the command ` WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31') ` and `to_date`  to include only current employees. Duplicates were removed by `DISTINCT ON (e.emp_no)` command. To ensure I got the most recent titles, I used `ORDER BY e.emp_no, ti.from_date DESC` command.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Overview of the code**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To retrieve this data, three tables were merge together: employees, titles and dep_emp with the `inner join`. The query filters by birth date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(that indicates who is eligible for the mentorship program) with the command ` WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31') ` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and `to_date`  to include only current employees. Duplicates were removed by `DISTINCT ON (e.emp_no)` command. To ensure I got the most &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recent titles, I used `ORDER BY e.emp_no, ti.from_date DESC` command.
 
-:exclamation: Please see full reports in CSV files [here](Data/) and SQL Queries [here](Queries/Employee_Database_challenge.sql) - **see Deliverable  1 & 2**.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:exclamation: Please see full reports in CSV files [here](Data/) and SQL Queries [here](Queries/Employee_Database_challenge.sql) - **see Deliverable  1 & 2**.
 
 ## Summary
 
@@ -110,31 +110,31 @@ As the company is preparing for the upcoming "silver tsunami" a good planning is
 <img src="Graphics/Extra_TitlesAndDepartment.PNG" width="60%" height="60%">
 </p>
 <p align="center">  
-The table with retirement-ready employee’s data with added department name.
+Table with retirement-ready employee’s data with added department name.
 </p>
 
 :exclamation: Please see full report [here](Data/) - **see 05_Extra_unique_titles_department.csv** and SQL Queries [here](Queries/Employee_Database_challenge.sql) - **see Deliverable 3**.
 
 ***How many roles will need to be filled as the "silver tsunami" begins to make an impact?***
-The table ** retirement titles ** contains all the information about the employees that are about to retire in the next four years. To get the number how many positions will be opening in next four years I ran additional query that breaks down how many staff will retire per department. Since every department will be affected in some way this query gives more precise numbers what each department can expect and how many roles will need to be fill up.
+The table ** retirement titles ** contains all the information about the employees that are about to retire in the next four years. To get the number of positions that will be open in next four years I ran additional query that breaks down how many staff will retire per department. Since every department will be affected in some way this query gives more precise numbers what each department can expect and how many roles will need to be filled.
 
 <p align="center">  
 <img src="Graphics/Extra_RolesToFill.PNG" width="40%" height="40%">
 </p>
 <p align="center">  
-The sum of retirement-ready employees group by title and department. 
+Sum of retirement-ready employees group by title and department. 
 </p>
 
 :exclamation: Please see full report [here](Data/06_Extra_roles_to_fill.csv) and SQL Queries [here](Queries/Employee_Database_challenge.sql) - **see Deliverable 3**.
 
 ***Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett-Hackard employees?***
-To ensure that are enough qualified staff for training at Pewlett-Hackard I ran a query with additional filter, that returns only employees on higher positions, assuming that those are qualified as mentors. With the command ` WHERE ut.title IN ('Senior Engineer', 'Senior Staff', 'Technique Leader', 'Manager') ` the results include only staff on higher positions. From the table we can see how many qualifies employees are in each department to train next generation. 
+To ensure that are enough qualified staff for training at Pewlett-Hackard I ran a query with additional filter, that returns only employees on higher positions, assuming that those are qualified as mentors. With the command ` WHERE ut.title IN ('Senior Engineer', 'Senior Staff', 'Technique Leader', 'Manager') ` the results include only staff on higher positions. From the table we can see how many qualified employees are in each department to train next generation. 
 
 <p align="center">  
 <img src="Graphics/Extra_QualifiedStaff.PNG" width="40%" height="40%">
 </p>
 <p align="center">  
-The sum of qualified, retirement-ready employees group by title and department. 
+Sum of qualified, retirement-ready employees group by title and department. 
 </p>
 
 :exclamation: Please see full report [here](Data/07_Extra_qualified_staff.csv) and SQL Queries [here](Queries/Employee_Database_challenge.sql) - **see Deliverable 3**.
