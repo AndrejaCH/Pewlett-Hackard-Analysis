@@ -49,7 +49,7 @@ Software:
 <img src="Graphics/EmployeesTitleDuplicates.PNG" width="50%" height="50%">
 </p>
 <p align="center">  
-Table with the employee’s data that are retirement-ready
+<i>Figure1: Table with the employee’s data that are retirement-ready</i>
 </p>
 
   **Overview of the code**
@@ -67,7 +67,7 @@ To retrieve the data, two tables were merged together - employees and titles - w
 <img src="Graphics/EmployeesTitleNODuplicates.PNG" width="50%" height="50%">
 </p>
 <p align="center">  
-Table with the employee’s data that are retirement-ready without duplicates
+<i>Figure 2: Table with the employee’s data that are retirement-ready without duplicates</i>
 </p>
 
 **Overview of the code**
@@ -83,7 +83,7 @@ Query contains the same data as the query above with addition of `distinct_on` c
 <img src="Graphics/EmployeesTitleSum.PNG" width="30%" height="30%">
 </p>
 <p align="center">  
-Table with the employee grouped by title
+<i>Figure 3:Table with the employee grouped by title</i>
 </p>
 
 **Overview of the code**
@@ -98,7 +98,7 @@ In order to retrieve this table I used `GROUP BY ut.title` command, and it is re
 <img src="Graphics/Menthorship.PNG" width="50%" height="50%">
 </p>
 <p align="center">  
-Table with the employee grouped by title
+<i>Figure 4:Table with the employee grouped by title</i>
 </p>
 
 **Overview of the code**
@@ -114,7 +114,7 @@ As the company is preparing for the upcoming "silver tsunami" a good planning is
 <img src="Graphics/Extra_TitlesAndDepartment.PNG" width="60%" height="60%">
 </p>
 <p align="center">  
-Table with retirement-ready employee’s data with added department name.
+<i>Figure 5:Table with retirement-ready employee’s data with added department name</i>
 </p>
 
 :exclamation: Please see full report [here](Data/) - **see 05_Extra_unique_titles_department.csv** and SQL Queries [here](Queries/Employee_Database_challenge.sql) - **see Deliverable 3**.
@@ -126,7 +126,7 @@ The table ** retirement titles ** contains all the information about the employe
 <img src="Graphics/Extra_RolesToFill.PNG" width="40%" height="40%">
 </p>
 <p align="center">  
-Sum of retirement-ready employees group by title and department. 
+<i>Figure 6: Sum of retirement-ready employees group by title and department.</i> 
 </p>
 
 :exclamation: Please see full report [here](Data/06_Extra_roles_to_fill.csv) and SQL Queries [here](Queries/Employee_Database_challenge.sql) - **see Deliverable 3**.
@@ -138,7 +138,7 @@ To ensure that are enough qualified staff for training at Pewlett-Hackard I ran 
 <img src="Graphics/Extra_QualifiedStaff.PNG" width="40%" height="40%">
 </p>
 <p align="center">  
-Sum of qualified, retirement-ready employees group by title and department. 
+<i>Figure 7:Sum of qualified, retirement-ready employees group by title and department</i>
 </p>
 
 :exclamation: Please see full report [here](Data/07_Extra_qualified_staff.csv) and SQL Queries [here](Queries/Employee_Database_challenge.sql) - **see Deliverable 3**.
