@@ -38,6 +38,21 @@ Software:
 -	pgAdmin 4
 -	Quick DBD
 
+## ERD and Schema
+
+**ERD**
+An entity-relationship diagram (ERD) is crucial to creating a good database design. It is used as a high-level logical data model, which is useful in developing a conceptual design for databases.
+
+<p align="center">  
+<img src="Queries/ERD.png" width="40%" height="40%">
+</p>
+<p align="center">  
+<i>Figure 1: ERD</i>
+</p>
+
+**Schema**
+A [schema](Queries/schema.sql) is a blueprint or architecture of how data will look, is a description of the actual construction of the database. It is an all-encompassing term that refers to the collective of tables, columns, triggers, relationships, key constraints, functions and procedures. Schemas are important for designig database management sysyems (DBMS) or relational database management systems (RDBMS). 
+
 ## Results  
 
 **1.	The list of retiring employees**
@@ -49,7 +64,7 @@ Software:
 <img src="Graphics/EmployeesTitleDuplicates.PNG" width="50%" height="50%">
 </p>
 <p align="center">  
-<i>Figure1: Table with the employee’s data that are retirement-ready</i>
+<i>Figure 2: Table with the employee’s data that are retirement-ready</i>
 </p>
 
   **Overview of the code**
@@ -67,7 +82,7 @@ To retrieve the data, two tables were merged together - employees and titles - w
 <img src="Graphics/EmployeesTitleNODuplicates.PNG" width="50%" height="50%">
 </p>
 <p align="center">  
-<i>Figure 2: Table with the employee’s data that are retirement-ready without duplicates</i>
+<i>Figure 3: Table with the employee’s data that are retirement-ready without duplicates</i>
 </p>
 
 **Overview of the code**
@@ -83,7 +98,7 @@ Query contains the same data as the query above with addition of `distinct_on` c
 <img src="Graphics/EmployeesTitleSum.PNG" width="30%" height="30%">
 </p>
 <p align="center">  
-<i>Figure 3:Table with the employee grouped by title</i>
+<i>Figure 4: Table with the employee grouped by title</i>
 </p>
 
 **Overview of the code**
@@ -98,7 +113,7 @@ In order to retrieve this table I used `GROUP BY ut.title` command, and it is re
 <img src="Graphics/Menthorship.PNG" width="50%" height="50%">
 </p>
 <p align="center">  
-<i>Figure 4:Table with the employee grouped by title</i>
+<i>Figure 5: Table with the employee grouped by title</i>
 </p>
 
 **Overview of the code**
@@ -114,7 +129,7 @@ As the company is preparing for the upcoming "silver tsunami" a good planning is
 <img src="Graphics/Extra_TitlesAndDepartment.PNG" width="60%" height="60%">
 </p>
 <p align="center">  
-<i>Figure 5:Table with retirement-ready employee’s data with added department name</i>
+<i>Figure 6: Table with retirement-ready employee’s data with added department name</i>
 </p>
 
 :exclamation: Please see full report [here](Data/) - **see 05_Extra_unique_titles_department.csv** and SQL Queries [here](Queries/Employee_Database_challenge.sql) - **see Deliverable 3**.
@@ -126,7 +141,7 @@ The table ** retirement titles ** contains all the information about the employe
 <img src="Graphics/Extra_RolesToFill.PNG" width="40%" height="40%">
 </p>
 <p align="center">  
-<i>Figure 6: Sum of retirement-ready employees group by title and department.</i> 
+<i>Figure 7: Sum of retirement-ready employees group by title and department.</i> 
 </p>
 
 :exclamation: Please see full report [here](Data/06_Extra_roles_to_fill.csv) and SQL Queries [here](Queries/Employee_Database_challenge.sql) - **see Deliverable 3**.
@@ -138,7 +153,7 @@ To ensure that are enough qualified staff for training at Pewlett-Hackard I ran 
 <img src="Graphics/Extra_QualifiedStaff.PNG" width="40%" height="40%">
 </p>
 <p align="center">  
-<i>Figure 7:Sum of qualified, retirement-ready employees group by title and department</i>
+<i>Figure 8: Sum of qualified, retirement-ready employees group by title and department</i>
 </p>
 
 :exclamation: Please see full report [here](Data/07_Extra_qualified_staff.csv) and SQL Queries [here](Queries/Employee_Database_challenge.sql) - **see Deliverable 3**.
