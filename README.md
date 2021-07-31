@@ -135,7 +135,7 @@ As the company is preparing for the upcoming "silver tsunami" a good planning is
 :exclamation: Please see full report [here](Data/) - **see 05_Extra_unique_titles_department.csv** and SQL Queries [here](Queries/Employee_Database_challenge.sql) - **see Deliverable 3**.
 
 ***How many roles will need to be filled as the "silver tsunami" begins to make an impact?***
-The table ** retirement titles ** contains all the information about the employees that are about to retire in the next four years. To get the number of positions that will be open in next four years I ran additional query that breaks down how many staff will retire per department. Since every department will be affected in some way this query gives more precise numbers what each department can expect and how many roles will need to be filled.
+The table **retirement titles** contains all the information about the employees that are about to retire in the next four years. To get the number of positions that will be open in next four years I ran additional query that breaks down how many staff will retire per department. Since every department will be affected in some way this query gives more precise numbers what each department can expect and how many roles will need to be filled.
 
 <p align="center">  
 <img src="Graphics/Extra_RolesToFill.PNG" width="40%" height="40%">
