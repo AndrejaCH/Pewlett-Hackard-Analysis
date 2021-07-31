@@ -51,7 +51,7 @@ An entity-relationship diagram (ERD) is crucial to creating a good database desi
 </p>
 
 **Schema**
-A [schema](Queries/schema.sql) is a blueprint or architecture of how data will look. It is a description of the actual construction of the database, an all-encompassing term that refers to the collective of tables, columns, triggers, relationships, key constraints, functions and procedures. Schemas are important for designig database management sysyems (DBMS) or relational database management systems (RDBMS). 
+A [schema](Queries/schema.sql) is a blueprint or architecture of how data will look. It is a description of the actual construction of the database, an all-encompassing term that refers to the collective of tables, columns, triggers, relationships, key constraints, functions and procedures. Schemas are important for designig database management systems (DBMS) or relational database management systems (RDBMS). 
 
 ## Results  
 
